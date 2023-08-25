@@ -2,8 +2,10 @@
 
 # dependencies
 /node_modules
+package-lock
 /.pnp
 .pnp.js
+.next
 
 # testing
 /coverage
