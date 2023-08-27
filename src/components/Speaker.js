@@ -1,15 +1,15 @@
 function Session({ title, room }) {
   return (
     <span className="session w-100">
-      {title} <strong>Room: {room}</strong>
+      {title} <strong>Room: {room.name}</strong>
     </span>
   );
 }
 
-function Sessions() {
+function Sessions({ sessions }) {
   return (
     <div className="sessionBox card h-250">
-      <Session {...Sessions[0]} />
+      <Session {...sessions[0]} />
     </div>
   );
 }
@@ -61,14 +61,14 @@ function SpeakerDemographics({
   );
 }
 
-function Speaker({ speaker }) {
+function Speaker({ speaker,showSessions }) {
   const { id, first, last, sessions } = speaker;
   return (
     <div className="col-xs-12 col-sm-12 col-md-6 col-lg-4 col-sm-12 col-xs-12">
       <div className="card card-height p-4 mt-4">
         <SpeakerImage id={id} first={first} last={last} />
         <SpeakerDemographics {...speaker} />
-        <Sessions sessions={sessions} />
+        {showSessions === true ? <Sessions sessions={sessions} /> : null} 
       </div>
     </div>
   );
