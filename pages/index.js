@@ -1,16 +1,9 @@
-import { data } from "../SpeakerData";
-import Speaker from "../src/components/Speaker";
+import App from "../src/components/App";
 
 
 const IndexPage = () => {
   return (
-    <div className="constiner speakers-list">
-      <div className="row">
-        {data.map(function (speaker) {
-          return <Speaker key={speaker.id} speaker={speaker} />;
-        })}
-      </div>
-    </div>
+    <App />
   );
 };
 
