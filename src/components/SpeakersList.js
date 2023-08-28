@@ -1,6 +1,6 @@
 import Speaker from "./Speaker";
 import ReactPlaceHolder from "react-placeholder";
-import useRequestDelay, { REQUEST_STATUS } from "./hooks/useRequestDelay";
+import useRequestDelay, { REQUEST_STATUS } from "../hooks/useRequestDelay";
 import { data } from "../../SpeakerData";
 
 function SpeakersList({ showSessions }) {
