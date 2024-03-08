@@ -18,7 +18,10 @@ npm run dev
 
 # Dockerization
 
-1. Created the docker file for a start:
+1. Install docker and make sure it runs ( [here are the steps](https://docs.docker.com/engine/install/))
+
+
+2. Created the docker file for a start:
 
    ```
    FROM node:18.18.0
@@ -36,13 +39,13 @@ npm run dev
    CMD [ "npm", "run", "dev" ]
    ```
 
-2. Run this command to build it:
+3. Run this command to build it:
 
    ```
    docker build -t reyhanacynthia/codecamp:v1.0.0 .
    ```
 
-3. To run the image use:
+4. To run the image use:
 
     ```
     docker run -p  3000:3000 reyhanacynthia/codecamp:v1.0.0
@@ -54,11 +57,17 @@ docker login
 ```
 You will be prompted to enter your docker hub credentials. Then you can push your image to docker hub, [here](https://hub.docker.com/repository/docker/reyhanacynthia/codecamp/general) is the link to the image used for this project.
 
+# Setup cypress
+Use [this](https://docs.cypress.io/guides/getting-started/installing-cypress) cypress guide to set up cypress.
+
 
 # Jenkins
+1. Download jenkins image using: 
+   ```
+   docker image pull jenkins/jenkins:lts
+   ```
+2. Run jenkins:
 
-Run jenkins:
-
-```
-docker run -p 8080:8080 -p 50000:50000 -d -v jenkins_home:/var/jenkins_home jenkins/jenkins:lts
-```
+   ```
+   docker run -p 8080:8080 -p 50000:50000 -d -v jenkins_home:/var/jenkins_home jenkins/jenkins:lts
+   ```
