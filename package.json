@@ -7,7 +7,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "next",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "cypress:open": "cypress open"
   },
   "keywords": [],
   "author": "",
@@ -18,5 +19,8 @@
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-placeholder": "^4.1.0"
+  },
+  "devDependencies": {
+    "cypress": "^13.6.6"
   }
 }
