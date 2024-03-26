@@ -2,7 +2,7 @@ import Speaker from "./Speaker";
 import ReactPlaceHolder from "react-placeholder";
 import useRequestRest, { REQUEST_STATUS } from "../hooks/useRequestRest";
 import { SpeakerFilterContext } from "../contexts/SpeakerFilterContext";
-import { useContext } from "react";
+import React, { useContext } from "react";
 import SpeakerAdd from "./SpeakerAdd";
 import data from "../../SpeakerData";
 

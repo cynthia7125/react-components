@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import React, { useContext } from "react";
 import { SpeakerContext } from "../contexts/SpeakerContext";
 
 function speakerDelete() {

@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import React, { useContext } from "react";
 import { ThemeContext } from "../contexts/ThemeContext";
 import { SpeakerFilterContext } from "../contexts/SpeakerFilterContext";
 
@@ -29,7 +29,7 @@ function SpeakersToolbar() {
                     setShowSessions(event.target.checked);
                   }}
                 />
-                <span className="switch"></span>
+                <span className="switch" data-cy="switch"></span>
               </label>
             </li>
             <li className="d-flex flex-column flex-md-row ml-sm-5 ml-0">

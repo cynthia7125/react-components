@@ -1,4 +1,5 @@
 import App from "../src/components/App";
+import React from "react";
 
 
 const IndexPage = () => {
