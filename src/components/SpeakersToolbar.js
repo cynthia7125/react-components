@@ -76,7 +76,11 @@ function SpeakersToolbar() {
                 >
                   {EVENT_YEARS.map(function (year) {
                     return (
-                      <option value={year} key={year}>
+                      <option
+                        value={year}
+                        key={year}
+                        data-cy={`option-${year}`}
+                      >
                         {year}
                       </option>
                     );

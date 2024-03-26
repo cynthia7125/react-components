@@ -30,7 +30,7 @@ npm run dev
 
    COPY package*.json ./
 
-   RUN npm install
+   RUN npm install --legacy-peer-deps
 
    COPY . .
 
@@ -64,10 +64,29 @@ Use [this](https://docs.cypress.io/guides/getting-started/installing-cypress) cy
 # Jenkins
 1. Download jenkins image using: 
    ```
-   docker image pull jenkins/jenkins:lts
+   docker pull jenkins/jenkins
    ```
 2. Run jenkins:
 
    ```
-   docker run -p 8080:8080 -p 50000:50000 -d -v jenkins_home:/var/jenkins_home jenkins/jenkins:lts
+   docker run -p 8080:8080 -p 50000:50000 -d -v jenkins_home:/var/jenkins_home jenkins/jenkins
    ```
+At this point you can access jenkins console on http://localhost:8080 . Set it up by grabbing the password from the file path indicated and set up your user.
+
+3. After clicking the above url you will be prompted a password. Since you are using a jenkins container in docker the password will not be found locally in your computer.Follow this steps to get your jenkins password.
+   - Access jenkins bash using
+   ```
+   docker exec -it <container_ID> bash
+
+   ```
+   Note: Get container ID from running ``` docker ps -a```
+   - Within the bash cd to the secrets file and read the contents of the initialAdminPassword file using the below commands
+   ```
+   cd /var/jenkins_home/secrets
+
+   cat initialAdminPassword
+   ```
+Head back to the jenkins and input the jenkins password that will look something like this ```3f627075651d4de389fff8ff9e741729```.
+After loging in to jenkins you will choose either to install suggested software or customize software to be installed.
+
+
