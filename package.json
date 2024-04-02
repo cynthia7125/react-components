@@ -14,14 +14,22 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@apollo/client": "^3.9.9",
     "axios": "^1.5.0",
+    "cors": "^2.8.5",
+    "graphql": "^16.8.1",
+    "mongo-tools": "^1.0.0",
+    "mongodb": "^6.5.0",
+    "mongoose": "^8.2.4",
     "next": "^13.4.19",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-placeholder": "^4.1.0"
   },
   "devDependencies": {
+    "@babel/cli": "^7.24.1",
     "@babel/core": "^7.24.3",
+    "@babel/node": "^7.23.9",
     "@babel/preset-env": "^7.24.3",
     "@babel/preset-react": "^7.24.1",
     "babel-loader": "^9.1.3",
