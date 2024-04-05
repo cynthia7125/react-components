@@ -75,6 +75,7 @@ Use [this](https://docs.cypress.io/guides/getting-started/installing-cypress) cy
 node importData.js
 ```
 3. Verify that your data is correctly imported to the database.
+4. Get data from the database and display on an endpoint. For this I created the server folder that holds the [index.js](server/index.js) file which I used to fetch the data from the database.
 
 # Jenkins
 
