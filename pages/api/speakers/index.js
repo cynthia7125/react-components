@@ -1,29 +1,36 @@
-import { data } from "../../../SpeakerData";
-import path from "path";
-import fs from "fs";
+const { MongoClient } = require("mongodb");
 
-const { promisify } = require("util");
-const readFile = promisify(fs.readFile);
-const delay = (ms) =>
-  new Promise((resolve) => {
-    setTimeout(resolve, ms);
+const uri = "mongodb+srv://reyhana:reyhana@speakers.zkwm8m5.mongodb.net/";
+const dbName = "Speakers";
+
+async function getDataFromMongoDB(req, res) {
+  const client = new MongoClient(uri, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
   });
 
-export default async function handler(req, res) {
-  // res.status(200).send(JSON.stringify(data, null, 2));
-
-  const jsonFile = path.resolve("./", "db.json");
   try {
-    const readFileData = await readFile(jsonFile);
-    await delay(1000);
-    const speakers = JSON.parse(readFileData).speakers;
-    if (speakers) {
-      res.setHeader("Content-Type", "application/json");
-      res.status(200).send(JSON.stringify(speakers, null, 2));
+    await client.connect();
+
+    const db = client.db(dbName);
+    const collection = db.collection("Speakers");
+
+    const readSpeakerData = await collection.find().toArray();
+    const speakers = readSpeakerData;
+
+    if (speakers.length > 0) {
+      res.status(200).send( speakers );
       console.log("GET /api/speakers status: 200");
+    } else {
+      console.log("/api/speakers error: No data found");
+      res.status(404).send("No data found");
     }
-  } catch (e) {
-    console.log("/api/speakers error", e);
-    res.status(404).send("File Not Found on server");
+  } catch (error) {
+    console.log("/api/speakers error:", error);
+    res.status(500).send("Internal Server Error");
+  } finally {
+    await client.close();
   }
 }
+
+module.exports = getDataFromMongoDB;
