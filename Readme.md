@@ -85,8 +85,28 @@ Use [this](https://docs.cypress.io/guides/getting-started/installing-cypress) cy
    ```
    and it should looks something like this:
 
-   ![MongoDB start](<Screenshot from 2024-04-06 17-38-05.png>)
+   ![MongoDB start](<MongoDB start.png>)
 7. Open the link displayed in your termainal and check that the data is being displayed and that it matches the data in the database.
+
+
+## Setting up GraphQL Server
+
+Opted to using GQL instead of using data directly form the database and this is how I set it up.
+
+1. Follow this [link](<https://www.toptal.com/graphql/creating-your-first-graphql-api)>) to help with initial setup.
+2. Create a new graphQL file and populate it with similar information as to what is in the [GQLindex.js](server/GQLindex.js) file. This will help in starting up uor server on a specific port where you can then access the graphql console.
+3. After adding the file and assigning a port to the GraphQL server,add the following to the package.json file inder ```scripts``` with in the server where your GQLindes.js file lives.
+   ```
+   "serve": "babel-node GQLindex.js"
+   ```
+4. Use the following command in your project terminal to run the graphql server.
+   ```
+   npm run serve
+   ```
+   and you should see the server turn on as shown below:
+
+   ![GQL start](<GQL start.png>)
+5. Open the link on your terminal to connect to GQL Frontend and test that the server is getting data from the URL specified in the GQLindex file.
 
 
 # Jenkins
