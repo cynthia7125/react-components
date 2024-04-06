@@ -107,7 +107,7 @@ Opted to using GQL instead of using data directly form the database and this is 
 
    ![GQL start](<GQL start.png>)
 5. Open the link on your terminal to connect to GQL Frontend and test that the server is getting data from the URL specified in the GQLindex file.
-
+6. Update the [useReqeustRest](src/hooks/useRequestRest.js) hook to use data from the GQL server.
 
 # Jenkins
 
