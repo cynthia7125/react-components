@@ -1,5 +1,3 @@
-//import speakerData from '../../../src/SpeakerData';
-
 import path from "path";
 import fs from "fs";
 
@@ -9,8 +7,6 @@ const writeFile = promisify(fs.writeFile);
 const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
 export default async function handler(req, res) {
-  //res.status(200).send(JSON.stringify(speakerData,null,2));
-
   const method = req?.method;
   const id = parseInt(req?.query.id);
   const recordFromBody = req?.body;

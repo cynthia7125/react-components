@@ -4,7 +4,6 @@ import useRequestRest, { REQUEST_STATUS } from "../hooks/useRequestRest";
 import { SpeakerFilterContext } from "../contexts/SpeakerFilterContext";
 import React, { useContext } from "react";
 import SpeakerAdd from "./SpeakerAdd";
-import data from "../../SpeakerData";
 
 function SpeakersList() {
   const {
