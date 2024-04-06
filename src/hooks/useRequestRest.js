@@ -9,23 +9,63 @@ export const REQUEST_STATUS = {
 
 const restUrl = "api/speakers";
 
+const fetchSpeakers = async () => {
+  try {
+    const response = await fetch("http://localhost:8080/graphql", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        query: `
+          query {
+            speakers {
+              id
+              first
+              last
+              company
+              bio
+              twitterHandle
+              favorite
+              sessions {
+                id
+                title
+                eventYear
+                room {
+                  name
+                  capacity
+                }
+              }
+            }
+          }
+        `,
+      }),
+    });
+    const { data } = await response.json();
+    return data ? data.speakers : [];
+  } catch (error) {
+    console.error("Error fetching speakers:", error);
+    return [];
+  }
+};
+
 function useRequestRest() {
   const [data, setData] = useState([]);
   const [requestStatus, setRequestStatus] = useState(REQUEST_STATUS.LOADING);
   const [error, setError] = useState("");
-  const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
+
   useEffect(() => {
-    async function delayFunc() {
+    const fetchData = async () => {
       try {
-        const result = await axios.get(restUrl);
+        const speakersData = await fetchSpeakers();
+        setData(speakersData);
         setRequestStatus(REQUEST_STATUS.SUCCESS);
-        setData(result.data);
-      } catch (e) {
+      } catch (error) {
+        setError(error.message);
         setRequestStatus(REQUEST_STATUS.FAILURE);
-        setError(e);
       }
-    }
-    delayFunc();
+    };
+    fetchData();
   }, []);
 
   function updateRecord(record, doneCallback) {
