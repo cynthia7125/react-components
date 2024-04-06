@@ -1,13 +1,17 @@
 {
   "speakers": [
     {
+      "favorite": true,
+      "id": "47344"
+    },
+    {
       "id": "1269",
       "first": "Arun",
       "last": "Gupta",
       "company": "Amazon",
       "bio": "Arun Gupta is a Principal Open Source Technologist at Amazon Web Services. ",
       "twitterHandle": "arungupta",
-      "favorite": true,
+      "favorite": false,
       "sessions": [
         {
           "id": "32",
