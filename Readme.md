@@ -20,7 +20,6 @@ npm run dev
 
 1. Install docker and make sure it runs ( [here are the steps](https://docs.docker.com/engine/install/)
 
-
 2. Created the docker file for a start:
 
    ```
@@ -70,12 +69,25 @@ Use [this](https://docs.cypress.io/guides/getting-started/installing-cypress) cy
 ## Seting up mongodb
 
 1. Log in and create a new mongodb database on the mongodb [server](https://account.mongodb.com/account/login)
-2. create a file that you will use to migrate your data to mongodb from json. For this I created [importData.js](importData.js) and used the below command to run the file and perform the import.
-```
-node importData.js
-```
+2. create a file that you will use to migrate your data to mongodb from json. For this I created [importData.js](importData.js)  and used the below command to run the file and perform the import.
+   ```
+   node importData.js
+   ```
 3. Verify that your data is correctly imported to the database.
 4. Get data from the database and display on an endpoint. For this I created the server folder that holds the [index.js](server/index.js) file which I used to fetch the data from the database.
+5. Add the following script to the package.json file, which will allow you to start the mongodb server.
+   ```
+   "start": "nodemon index.js"
+   ```
+6. Use the following command to start the mongodb server:
+   ```
+   npm start
+   ```
+   and it should looks something like this:
+
+   ![MongoDB start](<Screenshot from 2024-04-06 17-38-05.png>)
+7. Open the link displayed in your termainal and check that the data is being displayed and that it matches the data in the database.
+
 
 # Jenkins
 
@@ -113,4 +125,10 @@ node importData.js
    Head back to the jenkins and input the jenkins password that will look something like this `3f627075651d4de389fff8ff9e741729`.
    After loging in to jenkins you will choose either to install suggested software or customize software to be installed.
 
+Notes:
 
+Follow [this](https://www.toptal.com/graphql/creating-your-first-graphql-api) to setup GraphQL
+
+- Continue from getting data in speakers.js from the database instead of the .js file.
+
+- Fix persistence of favorite click through graphql.
