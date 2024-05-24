@@ -95,7 +95,7 @@ Opted to using GQL instead of using data directly form the database and this is 
 
 1. Follow this [link](<https://www.toptal.com/graphql/creating-your-first-graphql-api)>) to help with initial setup.
 2. Create a new graphQL file and populate it with similar information as to what is in the [GQLindex.js](server/GQLindex.js) file. This will help in starting up uor server on a specific port where you can then access the graphql console.
-3. After adding the file and assigning a port to the GraphQL server,add the following to the package.json file inder ```scripts``` with in the server where your GQLindes.js file lives.
+3. After adding the file and assigning a port to the GraphQL server,add the following to the package.json file inder ```scripts``` with in the server where your GQLindex.js file lives.
    ```
    "serve": "babel-node GQLindex.js"
    ```
